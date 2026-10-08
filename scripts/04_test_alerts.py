@@ -9,11 +9,12 @@ import json
 
 from src.rag.eval import check_groundedness
 from src.rag.alert_generator import format_document_facts, format_transaction_facts
-
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
 FEATURE_COLUMNS = ["amt","geo_distance_km","hour","day_of_week","mins_since_last_txn","amt_zscore", "category_fraud_rate", "city_pop"]
 EXAMPLE_DOCUMENT = {"prediction": "tampered", "confidence":0.93, "gradcam_region":"photo area, top-left"}
 
-def get_random_transaction_case(test_parquet_path: str = "/Users/ggpranav/Documents/FrauddetectionNL/outputs/data/test_featured.parquet"):
+def get_random_transaction_case(test_parquet_path: str = str(ROOT / "outputs" / "data" / "test_featured.parquet")):
     """Pick a random test set row, run it throught lightgbm,, and return shap_output, risk_score) for alert pipeline"""
     model = joblib.load("outputs/models/lightgbm.joblib")
     explainer = joblib.load("outputs/models/shap_explainer.joblib")
@@ -48,7 +49,7 @@ def get_random_document_case():
     result = subprocess.run(
         ["python", "scripts/doc_infer_worker.py"],
         capture_output=True, text=True, check=True,
-        cwd="/Users/ggpranav/Documents/FrauddetectionNL",
+        cwd=str(ROOT),
     )
     verdict = json.loads(result.stdout.strip().splitlines()[-1])
     print(f"DEBUG: picked doc {verdict['path']}, actual label={verdict['actual_label']}, predicted={verdict['prediction']}", flush=True)

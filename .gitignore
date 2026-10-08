@@ -26,3 +26,5 @@ outputs/models/*
 !outputs/models/lightgbm.joblib
 !outputs/models/shap_explainer.joblib
 !outputs/rag_index/
+!outputs/rag_index/
+!outputs/rag_index/
