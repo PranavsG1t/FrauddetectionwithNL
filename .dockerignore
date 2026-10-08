@@ -1,0 +1,22 @@
+# Secrets must never be baked into an image
+.env
+.env.*
+
+# Big or irrelevant for the API image (also keeps the build upload small)
+venv/
+venv_old/
+rawdata/
+notebooks/
+frontend/
+scripts/
+tests/
+outputs/document_dataset/
+outputs/data/
+outputs/*.png
+.git/
+.gitignore
+.vscode/
+.pytest_cache/
+**/__pycache__/
+*.pyc
+*.md

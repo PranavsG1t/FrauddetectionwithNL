@@ -1,0 +1,38 @@
+# Core
+pandas
+pyarrow
+numpy
+scikit-learn
+imbalanced-learn
+
+# Modeling
+lightgbm
+torch
+torchvision
+shap
+optuna
+
+# NLP / Embeddings / RAG
+sentence-transformers
+faiss-cpu
+langchain
+langchain-community
+langchain-core
+langchain-google-genai
+langchain-text-splitters
+
+# LLM client
+google-generativeai
+
+# API
+fastapi
+uvicorn[standard]
+pydantic
+
+# Utilities
+python-dotenv
+jupyter
+matplotlib
+seaborn
+opencv-python
+scikit-image

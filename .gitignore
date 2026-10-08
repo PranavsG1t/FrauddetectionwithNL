@@ -1,0 +1,28 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# environments and caches
+venv/
+venv_old/
+__pycache__/
+.pytest_cache/
+.vscode/
+.DS_Store
+
+# data (too big / not redistributable)
+rawdata/
+notebooks/
+*.tar
+
+# dashboard lives in its own repo
+frontend/
+
+# outputs: keep only what the API image loads
+outputs/*
+!outputs/models/
+outputs/models/*
+!outputs/models/lightgbm.joblib
+!outputs/models/shap_explainer.joblib
+!outputs/rag_index/
