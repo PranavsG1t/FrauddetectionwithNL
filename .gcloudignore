@@ -2,3 +2,6 @@
 .git
 tests/
 scripts/
+.env
+.env.*
+!.env.example
